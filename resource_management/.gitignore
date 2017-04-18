@@ -1,0 +1,7 @@
+*.pyc
+/config/settings/local.py
+/media
+/.idea
+/.env
+/static/CACHE/
+/node_modules
