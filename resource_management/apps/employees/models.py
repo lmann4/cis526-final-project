@@ -15,9 +15,9 @@ class Employee(models.Model):
     end_date = models.DateField(blank=True, null=True)
     
 class Schedule(models.Model):
-    employeeId = models.IntegerField()
+    employee_id = models.ForeignKey(Employee)
     date = models.DateField()
-    startTime = models.IntergerField()
-    endTime = models.IntergerField()
-    employee_sub = models.IntegerField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    employee_sub = models.ForeignKey(Employee)
     up_for_sub = models.Booleanfield(default=False)
