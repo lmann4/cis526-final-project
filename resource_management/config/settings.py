@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 APPS = [
     'apps.employees',
     'apps.inventory',
+    'apps.base',
 ]
 
 DJANGO_APPS = [
@@ -43,7 +44,11 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + APPS
+THIRD_PARTY_APPS = [
+    'bootstrapform',
+]
+
+INSTALLED_APPS = DJANGO_APPS + APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +71,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -127,3 +133,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+LOGIN_REDIRECT_URL = '/employees/'

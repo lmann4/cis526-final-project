@@ -1,0 +1,23 @@
+{% extends 'layouts/base_site.html' %}
+{% load bootstrap %}
+{% block title %}Login{% endblock %}
+
+{% block side-nav %}{% endblock %}
+{%  block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<div class="">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <div class="col-md-4 offset-md-2 login-card">
+            {{ form|bootstrap }}
+            <input class="btn btn-primary" type="submit" value="login" />
+            <input type="hidden" name="next" value="" />
+        </div>
+    </form>
+</div>
+{% endblock %}

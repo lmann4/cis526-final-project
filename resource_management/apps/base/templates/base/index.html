@@ -1,0 +1,18 @@
+{% extends 'layouts/base_site.html' %}
+{% block style %}
+    {{ block.super }}
+    <style>
+    .content-wrapper {
+        padding-left: 0;
+    }
+    </style>
+{% endblock %}
+{% block side-nav %}{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+    <h2>Welcome to the</h2>
+    <h1>Kramer Dining Center Management Site</h1>
+    <a href="{% url 'login' %}">Please Login to continue.</a>
+    </div>
+
+{% endblock %}

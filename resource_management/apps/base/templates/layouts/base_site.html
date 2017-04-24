@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} - Kramer Dining Center Management</title>
+
+    {% block style %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+{% block base_header %}
+<header class="master">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <a class="navbar-brand" href="#">Kramer Dining Center</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+    </div>
+</nav>
+</header>
+{% endblock base_header %}
+
+{% block base_content %}
+    {% block side-nav %}
+    <div class="side-nav">
+        <ul class="nav">
+            <li class="nav-header">Employees</li>
+            <li class="nav-item"><a class="nav-link" href="#">My Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sub Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+        </ul>
+        <ul class="nav">
+            <li class="nav-header">Inventory</li>
+            {% block inventory_categories %}
+                {% for item in inventory_categories %}
+                    <li class="nav-item"><a>{{ item }}</a></li>
+                {% endfor %}
+            {% endblock %}
+            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+        </ul>
+    </div>
+    {% endblock %}
+    <div class="content-wrapper">
+    <div id="main-content" class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block base_footer %}
+<footer class="master">
+
+</footer>
+{% endblock base_footer %}
+
+{% block script_bottom %}
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+{% endblock script_bottom %}
+
+</body>
+</html>

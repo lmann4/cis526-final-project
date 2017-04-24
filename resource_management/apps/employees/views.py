@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from apps.employees.models import Employee
+
+
+class EmployeeDetail(generic.DetailView):
+    model = Employee

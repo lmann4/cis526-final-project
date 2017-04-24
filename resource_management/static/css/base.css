@@ -1,0 +1,46 @@
+.side-nav {
+    background: #eceeef;
+    float: left;
+    position: absolute;
+    top: 53px;
+    bottom: 0;
+    min-width: 11em;
+    width: 20%;
+    padding-left: 15px;
+}
+@media only screen and (max-width: 991px) {
+    .content-wrapper {
+    padding-left: 11em;
+    }
+}
+@media only screen and (min-width: 991px) {
+    .content-wrapper {
+    padding-left: 20%;
+    }
+}
+
+.content-wrapper {
+    padding-top: 15px;
+}
+
+.nav {
+    flex-direction: column;
+}
+
+.nav-item:hover {
+    background: #bfbfbf;
+    border: solid 1px #ccc;
+}
+
+.nav-header {
+    list-style: none;
+    font-weight: bold;
+}
+
+.login-card {
+    padding: 20px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    margin-top: 10em;
+    background: #eee;
+}

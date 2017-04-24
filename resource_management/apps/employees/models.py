@@ -13,11 +13,12 @@ class Employee(models.Model):
     salary = models.DecimalField(max_digits=8, decimal_places=2)
     start_date = models.DateField(default=date.today)
     end_date = models.DateField(blank=True, null=True)
-    
+
+
 class Schedule(models.Model):
-    employee_id = models.ForeignKey(Employee)
+    employee_id = models.ForeignKey(Employee, related_name='schedule_set')
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    employee_sub = models.ForeignKey(Employee)
-    up_for_sub = models.Booleanfield(default=False)
+    employee_sub = models.ForeignKey(Employee, related_name='sub_schedule_set')
+    up_for_sub = models.BooleanField(default=False)
