@@ -12,18 +12,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
+    <script src="https://use.fontawesome.com/a5afb5b852.js"></script>
 </head>
 <body>
 
 {% block base_header %}
 <header class="master">
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <a class="navbar-brand" href="#">Kramer Dining Center</a>
-    <div class="collapse navbar-collapse" id="navbarText">
-    </div>
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+    <a class="navbar-brand" href="#">Kramer Dining Center</a>
+    <a class="float-right" href="{% url 'logout' %}">Logout</a>
 </nav>
 </header>
 {% endblock base_header %}
@@ -33,9 +30,9 @@
     <div class="side-nav">
         <ul class="nav">
             <li class="nav-header">Employees</li>
-            <li class="nav-item"><a class="nav-link" href="#">My Schedule</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Sub Board</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'employees:employee_home_redirect' %}"><i class="fa fa-calendar"></i> My Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-sticky-note-o"></i> Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i> Search</a></li>
         </ul>
         <ul class="nav">
             <li class="nav-header">Inventory</li>
@@ -44,7 +41,7 @@
                     <li class="nav-item"><a>{{ item }}</a></li>
                 {% endfor %}
             {% endblock %}
-            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i> Search</a></li>
         </ul>
     </div>
     {% endblock %}

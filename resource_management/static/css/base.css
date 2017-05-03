@@ -6,7 +6,16 @@
     bottom: 0;
     min-width: 11em;
     width: 20%;
-    padding-left: 15px;
+}
+.nav-header {
+    padding: 1em 0 0 1em;
+    border-bottom: 1px solid #ccc;
+}
+a.nav-link:hover {
+    color: white;
+}
+a.nav-link {
+    color: #545454;
 }
 @media only screen and (max-width: 991px) {
     .content-wrapper {

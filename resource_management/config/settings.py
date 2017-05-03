@@ -143,4 +143,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-LOGIN_REDIRECT_URL = '/employees/'
+LOGIN_REDIRECT_URL = '/employees/home'
