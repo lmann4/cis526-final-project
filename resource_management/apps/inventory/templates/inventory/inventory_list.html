@@ -1,0 +1,10 @@
+{% extends 'layouts/base_site.html' %}
+{% load bootstrap %}
+{% block title %}Inventory{% endblock %}
+
+{%  block content %}
+    <h1>{{ category }} Inventory</h1>
+    {% for item in object_list %}
+    	<li>{{ item.name }}</li>
+    {% endfor %}
+{% endblock %}
