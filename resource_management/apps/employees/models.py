@@ -14,11 +14,14 @@ class Employee(models.Model):
     start_date = models.DateField(default=date.today)
     end_date = models.DateField(blank=True, null=True)
 
+    def __str__(self):
+        return self.user.get_full_name()
+
 
 class Schedule(models.Model):
-    employee_id = models.ForeignKey(Employee, related_name='schedule_set')
+    employee = models.ForeignKey(Employee, related_name='schedule_set')
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    employee_sub = models.ForeignKey(Employee, related_name='sub_schedule_set')
+    employee_sub = models.ForeignKey(Employee, related_name='sub_schedule_set', blank=True, null=True)
     up_for_sub = models.BooleanField(default=False)

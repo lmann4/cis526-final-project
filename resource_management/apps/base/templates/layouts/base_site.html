@@ -17,13 +17,8 @@
 
 {% block base_header %}
 <header class="master">
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <a class="navbar-brand" href="#">Kramer Dining Center</a>
-    <div class="collapse navbar-collapse" id="navbarText">
-    </div>
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+    <a class="navbar-brand" href="#">Kramer Dining Center</a>
 </nav>
 </header>
 {% endblock base_header %}
@@ -39,13 +34,18 @@
         </ul>
         <ul class="nav">
             <li class="nav-header">Inventory</li>
-            {% block inventory_category %}
-                {% for item in inventory_category %}
-                    <li class="nav-item"><a>{{ item.name }}</a></li>
+            {% block inventory_categories %}
+                {% for item in categories %}
+                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-truck"></i> {{ item.name }}</a></li>
                 {% endfor %}
             {% endblock %}
             <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
         </ul>
+        <ul class="nav">
+            <li class="nav-header">Account</li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-user"></i> Logout</a></li>
+        </ul>
+
     </div>
     {% endblock %}
     <div class="content-wrapper">
