@@ -36,7 +36,7 @@
             <li class="nav-header">Inventory</li>
             {% block inventory_categories %}
                 {% for item in categories %}
-                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-truck"></i> {{ item.name }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "inventory:inventory_list" %}?category_id={{ item.id }}"><i class="fa fa-truck"></i> {{ item.name }}</a></li>
                 {% endfor %}
             {% endblock %}
             <li class="nav-item"><a class="nav-link" href="#">Search</a></li>

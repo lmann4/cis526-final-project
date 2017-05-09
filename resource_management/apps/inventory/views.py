@@ -12,6 +12,12 @@ class InventoryCat(generic.ListView):
 
 class InventoryList(generic.ListView):
     model = Inventory
+    
+    def get_context_data(self, **kwargs):
+        context = super(InventoryList, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        print(self.request.GET['category_id'])
+        return context
 
 class createInventoryView(generic.CreateView):
     model = Inventory
@@ -19,3 +25,8 @@ class createInventoryView(generic.CreateView):
     
 class InventoryDetail(generic.DetailView):
     model = Inventory
+    
+    def get_context_data(self, **kwargs):
+        context = super(InventoryDetail, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        return context
