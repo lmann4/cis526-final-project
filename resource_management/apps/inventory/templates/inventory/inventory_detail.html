@@ -1,0 +1,12 @@
+{% extends 'layouts/base_site.html' %}
+{% load bootstrap %}
+{% block title %}Inventory{% endblock %}
+
+{%  block content %}
+    <h1>{{ object.name }}</h1>
+	{{ object.category }}
+	{{ object.location }}
+	{{ object.amount }}
+	{{ object.units }}
+    
+{% endblock %}

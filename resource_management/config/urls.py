@@ -39,4 +39,6 @@ urlpatterns += [
     url(r'^employees/', include('apps.employees.urls', namespace='employees')),
 ]
 
-
+urlpatterns += [
+    url(r'^inventory/', include('apps.inventory.urls', namespace='inventory')),
+]
