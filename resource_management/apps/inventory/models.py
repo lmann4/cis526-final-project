@@ -16,6 +16,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 # Where the item is stored (i.e. Freezer A)
 class Location(models.Model):
     name = models.CharField(max_length=150)

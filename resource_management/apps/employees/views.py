@@ -6,7 +6,6 @@ from django.views import generic
 from apps.base.views import NavbarMixin
 from apps.employees.forms import ScheduleForm
 from apps.employees.models import Employee, Schedule
-from apps.inventory.models import Category
 
 
 class EmployeeDetail(NavbarMixin, generic.DetailView):
@@ -26,11 +25,6 @@ class EmployeeDetail(NavbarMixin, generic.DetailView):
                 'is_sub_shift': shift.employee_sub == self.request.user.pk
             }
         return work_week
-
-    def get_context_data(self, **kwargs):
-        context = super(EmployeeDetail, self).get_context_data()
-        context['categories'] = Category.objects.all()
-        return context
 
 
 def home(request):

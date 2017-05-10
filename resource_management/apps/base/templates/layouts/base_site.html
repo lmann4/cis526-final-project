@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
+    <script src="https://use.fontawesome.com/a5afb5b852.js"></script>
 </head>
 <body>
 
@@ -28,18 +29,18 @@
     <div class="side-nav">
         <ul class="nav">
             <li class="nav-header">Employees</li>
-            <li class="nav-item"><a class="nav-link" href="#">My Schedule</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Sub Board</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url "employees:employee_home_redirect" %}"><i class="fa fa-calendar"></i> My Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-sticky-note"></i> Sub Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i> Search</a></li>
         </ul>
         <ul class="nav">
             <li class="nav-header">Inventory</li>
             {% block inventory_categories %}
-                {% for item in categories %}
+                {% for item in view.categories %}
                     <li class="nav-item"><a class="nav-link" href="{% url "inventory:inventory_list" %}?category_id={{ item.id }}"><i class="fa fa-truck"></i> {{ item.name }}</a></li>
                 {% endfor %}
             {% endblock %}
-            <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i> Search</a></li>
         </ul>
         <ul class="nav">
             <li class="nav-header">Account</li>
