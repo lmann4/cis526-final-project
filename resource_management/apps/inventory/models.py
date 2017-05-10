@@ -31,6 +31,6 @@ class Inventory(models.Model):
     location = models.ForeignKey(Location)
     amount = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     units = models.SmallIntegerField(choices=INVENTORY_UNITS, default=0)
-    
+
     def get_absolute_url(self):
-        return reverse('inventory_detail', kwargs={'pk': self.pk})
+        return reverse('inventory:inventory_detail', kwargs={'pk': self.pk})
