@@ -5,6 +5,10 @@
 {%  block content %}
     <h1>{{ category }} Inventory</h1>
     {% for item in object_list %}
-    	<li>{{ item.name }}</li>
+    	<li><a href="{{ item.id }}">{{ item.name }}</a></li>
     {% endfor %}
+    <p></p>
+    	<a href="add">
+		<p><button class="btn btn-primary">Add Product</button></p>
+		</a>
 {% endblock %}

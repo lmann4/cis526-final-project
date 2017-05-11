@@ -4,9 +4,17 @@
 
 {%  block content %}
     <h1>{{ object.name }}</h1>
-	{{ object.category }}
-	{{ object.location }}
-	{{ object.amount }}
-	{{ object.units }}
+	<p>Category = {{ object.category }}</p>
+	<p>Location = {{ object.location }}</p>
+	<p>Amount = {{ object.amount }}</p>
+	{% if object.units == 0 %}  
+	  <span>Units = Count</span>  
+	{% elif object.units == 1 %}  
+	  <span>Units = Pounds</span>
+	{% elif object.units == 2 %}  
+	  <span>Units = Ounces</span>
+	{% else %}  
+	  <span>Units = Liters</span>      
+	{% endif %}  
     
 {% endblock %}
