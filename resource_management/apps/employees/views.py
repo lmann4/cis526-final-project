@@ -1,6 +1,9 @@
+import json
 from datetime import date, timedelta
+
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.urls import reverse_lazy
 from django.views import generic
 
 from apps.base.views import NavbarMixin
@@ -15,7 +18,7 @@ class EmployeeDetail(NavbarMixin, generic.DetailView):
         today = date.today()
         week_start = today - timedelta(days=today.weekday())
         week_end = week_start + timedelta(days=6)
-        schedule = Schedule.objects.filter(employee_id=self.request.user.pk, date__gte=week_start, date__lte=week_end).order_by('date')
+        schedule = Schedule.objects.filter(employee__user_id=self.request.user.pk, date__gte=week_start, date__lte=week_end).order_by('date')
 
         work_week = {}
         for shift in schedule:
@@ -24,13 +27,22 @@ class EmployeeDetail(NavbarMixin, generic.DetailView):
                 'end_time': shift.end_time.strftime('%I:%H %p'),
                 'is_sub_shift': shift.employee_sub == self.request.user.pk
             }
-        return work_week
+        return json.dumps(work_week)
 
 
 def home(request):
     return HttpResponseRedirect(reverse('employees:employee_detail', args=[Employee.objects.filter(user_id=request.user).first().pk]))
 
 
-class ScheduleAdd(NavbarMixin, generic.CreateView):
-    model = Schedule
+def schedule(request):
+    return HttpResponseRedirect(reverse('employees:employee_admin'))
+
+
+class ScheduleAdd(NavbarMixin, generic.FormView):
+    template_name = "employees/schedule_form.html"
     form_class = ScheduleForm
+    success_url = reverse_lazy('employees:employee_admin')
+
+
+class EmployeeAdminPanel(NavbarMixin, generic.TemplateView):
+    template_name = "employees/employee_admin.html"

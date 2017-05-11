@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from datetime import date
 
+from django.urls import reverse
+
 
 class Position(models.Model):
     title = models.CharField(max_length=100)
@@ -25,3 +27,6 @@ class Schedule(models.Model):
     end_time = models.TimeField()
     employee_sub = models.ForeignKey(Employee, related_name='sub_schedule_set', blank=True, null=True)
     up_for_sub = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse('employees:employee_detail', kwargs={'pk': self.request.GET['pk']})
