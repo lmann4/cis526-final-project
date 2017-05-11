@@ -1,0 +1,13 @@
+{% extends 'layouts/base_site.html' %}
+{% load bootstrap %}
+{% block title %}My Schedule{% endblock %}
+
+{%  block content %}
+    <div class="card">
+        <div class="card-header"><h1>Employee Admin</h1></div>
+        <div class="card-block">
+            <a class="btn btn-primary" href="{% url 'employees:employee_schedule_add' %}">Add Employee Schedule</a>
+        </div>
+
+    </div>
+{% endblock %}

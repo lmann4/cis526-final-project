@@ -53,3 +53,17 @@ a.nav-link {
     margin-top: 10em;
     background: #eee;
 }
+
+.working {
+    background: #0275d8;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.working.sub {
+    background: #f0ad4e;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}

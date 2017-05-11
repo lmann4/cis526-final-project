@@ -1,0 +1,31 @@
+{% extends 'layouts/base_site.html' %}
+{% load bootstrap staticfiles%}
+{% block script_bottom %}
+    {{ block.super }}
+    <script>
+        var take_slip_url = "{% url 'employees:take_slip' %}";
+    </script>
+    <script src="{% static 'js/sub_slip.js' %}"></script>
+{% endblock %}
+{% block title %}Sub Board{% endblock %}
+
+{%  block content %}
+    <div class="card">
+        <div class="card-header"><h1>Sub Board</h1></div>
+        <div class="card-block">
+            <div class="row">
+            {% for slip in view.sub_slips %}
+                <div id="sub_slip_{{ slip.id }}" class="col-md-3 card sub-slip" style="margin: 10px;">
+                    <div class="card-block">
+                        <h3>{{ slip.date }}</h3>
+                        <h5 class="text-muted">{{ slip.start_time }} - {{ slip.end_time }}</h5>
+                        <p>{{ slip.employee }}</p>
+                        <button class="btn btn-block btn-primary take-sub-slip">Take Slip</button>
+                    </div>
+                </div>
+
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
