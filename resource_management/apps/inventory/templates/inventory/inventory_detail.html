@@ -3,18 +3,28 @@
 {% block title %}Inventory{% endblock %}
 
 {%  block content %}
-    <h1>{{ object.name }}</h1>
-	<p>Category = {{ object.category }}</p>
-	<p>Location = {{ object.location }}</p>
-	<p>Amount = {{ object.amount }}</p>
-	{% if object.units == 0 %}  
-	  <span>Units = Count</span>  
-	{% elif object.units == 1 %}  
-	  <span>Units = Pounds</span>
-	{% elif object.units == 2 %}  
-	  <span>Units = Ounces</span>
-	{% else %}  
-	  <span>Units = Liters</span>      
-	{% endif %}  
-    
+	<div class="card">
+        <div class="card-header"><h1>{{ object.name }}</h1></div>
+        <div class="card-block">
+            <div class="row" style="margin: 10px;">
+		    	<h5 class="text-muted"><p>Category = {{ object.category }}</p>
+					<p>Location = {{ object.location }}</p>
+					<p>Amount = {{ object.amount }}</p>
+					{% if object.units == 0 %}  
+					  <span>Units = Count</span>  
+					{% elif object.units == 1 %}  
+					  <span>Units = Pounds</span>
+					{% elif object.units == 2 %}  
+					  <span>Units = Ounces</span>
+					{% else %}  
+					  <span>Units = Liters</span>      
+					{% endif %}  
+				</h5>
+				<h5>
+					<p><button class="btn btn-primary">Remove Product</button></p>
+					<p><button class="btn btn-primary">Edit Product</button></p>
+				</h5>	
+		    </div>
+	    </div>
+	</div>
 {% endblock %}

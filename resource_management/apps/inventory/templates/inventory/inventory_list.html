@@ -3,10 +3,29 @@
 {% block title %}Inventory{% endblock %}
 
 {%  block content %}
-    <h1>{{ category }} Inventory</h1>
-    {% for item in object_list %}
-    	<li><a href="{{ item.id }}">{{ item.name }}</a></li>
-    {% endfor %}
+    <div class="card">
+        <div class="card-header"><h1>{{ category }} Inventory</h1></div>
+        <div class="card-block">
+            <div class="row">
+		    {% for item in object_list %}
+		    	<div class="col-md-3 card sub-slip" style="margin: 10px;"><h3><a href="{{ item.id }}">{{ item.name }}</a></h3>
+		    	<h5 class="text-muted">Amount {{ item.amount }} - 
+		    		{% if item.units == 0 %}  
+					  <span>Count</span>  
+					{% elif item.units == 1 %}  
+					  <span>Pounds</span>
+					{% elif item.units == 2 %}  
+					  <span>Ounces</span>
+					{% else %}  
+					  <span>Liters</span>      
+					{% endif %}</h5>
+					
+				</div>
+		    {% endfor %}
+		    </div>
+        </div>
+    </div>
+		    
     <p></p>
     	<a href="add">
 		<p><button class="btn btn-primary">Add Product</button></p>
