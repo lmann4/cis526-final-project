@@ -1,3 +1,9 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+
+}
 .side-nav {
     background: #eceeef;
     float: left;
@@ -93,4 +99,12 @@ a.nav-link {
 }
 td {
     padding: 10px;
+}
+.inventory-item {
+    color: #000 !important;
+}
+.inventory-item:hover {
+    background: #ccc;
+    cursor: pointer;
+    text-decoration: none;
 }

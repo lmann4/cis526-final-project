@@ -8,19 +8,25 @@
         <div class="card-block">
             <div class="row">
 		    {% for item in object_list %}
-		    	<div class="col-md-3 card sub-slip" style="margin: 10px;"><h3><a href="{{ item.id }}">{{ item.name }}</a></h3>
-		    	<h5 class="text-muted">Amount {{ item.amount }} - 
-		    		{% if item.units == 0 %}  
-					  <span>Count</span>  
-					{% elif item.units == 1 %}  
-					  <span>Pounds</span>
-					{% elif item.units == 2 %}  
-					  <span>Ounces</span>
-					{% else %}  
-					  <span>Liters</span>      
-					{% endif %}</h5>
-					
-				</div>
+		    	<a class="col-md-3 card inventory-item" style="margin: 10px;" href="{% url 'inventory:inventory_detail' item.pk %}">
+
+                    <div class="card-block">
+                        <h3>{{ item.name }}</h3>
+                        <div class="text-muted">
+                            {{ item.amount }}
+                            {% if item.units == 0 %}
+                              <span>Count</span>
+                            {% elif item.units == 1 %}
+                              <span>Pounds</span>
+                            {% elif item.units == 2 %}
+                              <span>Ounces</span>
+                            {% else %}
+                              <span>Liters</span>
+                            {% endif %}
+                        </div>
+                    </div>
+				</a>
+
 		    {% endfor %}
 		    </div>
         </div>
