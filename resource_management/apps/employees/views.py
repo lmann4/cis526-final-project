@@ -24,12 +24,17 @@ class EmployeeDetail(NavbarMixin, generic.DetailView):
         work_week = {}
         for shift in schedule:
             is_sub_shift = False
-            if shift.employee_sub and shift.employee_sub.user.id == self.request.user.pk:
+            shift_taken = False
+            if shift.employee_sub and shift.employee_sub.user.id == self.request.user.pk and shift.up_for_sub is False:
                 is_sub_shift = True
+            if shift.employee_sub and shift.employee_sub.user.id != self.request.user.pk and shift.up_for_sub is False:
+                shift_taken = True
             work_week[shift.date.weekday()] = {
                 'start_time': shift.start_time.strftime('%I:%H %p'),
                 'end_time': shift.end_time.strftime('%I:%H %p'),
-                'is_sub_shift': is_sub_shift
+                'is_sub_shift': is_sub_shift,
+                'up_for_sub': shift.up_for_sub,
+                'shift_taken': shift_taken
             }
         return json.dumps(work_week)
 

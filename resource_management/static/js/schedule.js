@@ -70,6 +70,12 @@ var Schedule = (function($) {
                     if (shift.is_sub_shift) {
                         $(time_slot).addClass("working sub");
                     }
+                    else if (shift.shift_taken) {
+                        $(time_slot).addClass("working taken");
+                    }
+                    else if (shift.up_for_sub) {
+                        $(time_slot).addClass("working up-for-sub");
+                    }
                     else {
                         $(time_slot).addClass("working");
                     }

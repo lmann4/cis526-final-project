@@ -56,14 +56,41 @@ a.nav-link {
 
 .working {
     background: #0275d8;
-    color: white;
-    font-weight: bold;
-    text-align: center;
 }
 
 .working.sub {
     background: #f0ad4e;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+}
+
+.working.taken {
+    background: #5bc0de;
+}
+
+.working.up-for-sub {
+    background: #d9534f;
+}
+
+.work {
+    color: #0275d8;
+}
+.sub {
+    color: #f0ad4e;
+}
+.taken {
+    color: #5bc0de;
+}
+.up-for-sub {
+    color: #d9534f;
+}
+.pad-right {
+    margin-right: 15px;
+}
+.no-padding {
+    padding: 0;
+}
+.legend {
+    background: #ccc;
+}
+td {
+    padding: 10px;
 }
