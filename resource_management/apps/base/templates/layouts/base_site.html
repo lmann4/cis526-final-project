@@ -30,7 +30,7 @@
         <ul class="nav">
             <li class="nav-header">Employees</li>
             <li class="nav-item"><a class="nav-link" href="{% url "employees:employee_home_redirect" %}"><i class="fa fa-calendar"></i> My Schedule</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-sticky-note"></i> Sub Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'employees:sub_board' %}"><i class="fa fa-sticky-note"></i> Sub Board</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url "employees:employee_admin" %}"><i class="fa fa-gear"></i> Employee Admin</a></li>
         </ul>
         <ul class="nav">
@@ -66,6 +66,7 @@
 
 {% block script_bottom %}
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 {% endblock script_bottom %}

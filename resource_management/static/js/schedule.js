@@ -67,7 +67,13 @@ var Schedule = (function($) {
                     row_time += 12
                 }
                 if (row_time >= start && row_time <= end) {
-                    $(time_slot).addClass("working");
+                    if (shift.is_sub_shift) {
+                        $(time_slot).addClass("working sub");
+                    }
+                    else {
+                        $(time_slot).addClass("working");
+                    }
+
                 }
             });
         });

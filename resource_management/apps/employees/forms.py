@@ -9,6 +9,9 @@ def daterange(start_date, end_date):
         yield start_date + timedelta(n)
 
 
+# class SubSlipForm(forms.Form):
+
+
 class ScheduleForm(forms.Form):
     # This form is to batch create an employee's schedule.
     employee = forms.ModelChoiceField(queryset=Employee.objects.filter(user__is_active=True), required=True)
